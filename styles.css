@@ -1424,26 +1424,35 @@ h1 {
 
   .site-nav {
     position: fixed;
-    top: var(--header-height);
-    right: 0;
-    left: 0;
+    top: calc(var(--header-height) + var(--subnav-height) + 8px);
+    right: 16px;
+    left: auto;
+    z-index: 60;
     display: grid;
     gap: 0;
-    padding: 14px 16px 18px;
+    width: min(260px, calc(100% - 32px));
+    padding: 8px 14px;
     color: var(--color-ink);
     background: rgba(255, 255, 255, 0.98);
-    border-bottom: 1px solid var(--color-line);
-    box-shadow: 0 20px 38px rgba(17, 17, 17, 0.14);
-    transform: translateY(-130%);
-    transition: transform 180ms ease;
+    border: 1px solid var(--color-line);
+    border-radius: 6px;
+    box-shadow: 0 22px 42px rgba(17, 17, 17, 0.18);
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(-10px);
+    transition:
+      opacity 160ms ease,
+      transform 160ms ease;
   }
 
   .site-nav.is-open {
+    opacity: 1;
+    pointer-events: auto;
     transform: translateY(0);
   }
 
   .site-nav a {
-    padding: 14px 4px;
+    padding: 13px 4px;
     border-bottom: 1px solid var(--color-line);
   }
 
@@ -1452,7 +1461,7 @@ h1 {
   }
 
   .service-subnav {
-    justify-content: flex-start;
+    justify-content: center;
     overflow-x: auto;
     padding: 0 12px;
     scrollbar-width: none;
@@ -1463,7 +1472,7 @@ h1 {
   }
 
   .service-subnav a {
-    padding: 0 14px;
+    padding: 0 10px;
     font-size: 12px;
   }
 

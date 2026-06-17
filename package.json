@@ -1,0 +1,19 @@
+{
+  "name": "art-shimoura",
+  "version": "1.0.0",
+  "description": "既存HPを参考に作成した、GitHub Pages公開向けの静的サイトです。",
+  "main": "script.js",
+  "scripts": {
+    "serve": "python3 -m http.server 8000",
+    "playwright:install": "playwright install chromium",
+    "playwright:install-deps": "playwright install-deps chromium",
+    "test": "playwright test",
+    "test:headed": "playwright test --headed"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@playwright/test": "^1.61.0"
+  }
+}

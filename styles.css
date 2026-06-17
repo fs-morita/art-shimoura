@@ -1429,6 +1429,8 @@ h1 {
     left: auto;
     z-index: 60;
     display: grid;
+    justify-content: stretch;
+    justify-items: stretch;
     gap: 0;
     width: min(260px, calc(100% - 32px));
     padding: 8px 14px;
@@ -1452,8 +1454,11 @@ h1 {
   }
 
   .site-nav a {
+    display: block;
+    width: 100%;
     padding: 13px 4px;
     border-bottom: 1px solid var(--color-line);
+    text-align: left;
   }
 
   .site-nav a:last-child {

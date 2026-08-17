@@ -1,5 +1,9 @@
 node_modules/
 test-results/
+
+# ヒーロー動画の選定用候補（本番用は assets/videos/hero-painting.mp4）
+assets/videos/hero-candidate-*.mp4
+
 playwright-report/
 screenshots/
 .agents/

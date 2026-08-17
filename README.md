@@ -4,15 +4,17 @@
 
 ## ファイル構成
 
-- `index.html`: サイト本体
+- `index.html`: サイト本体（塗装・PP溶着を2枚看板にした構成）
 - `painting.html`: 塗装の詳細ページ
+- `pp-welding.html`: PP溶着の詳細ページ
 - `modeling.html`: 試作モデルの詳細ページ
 - `industrial-design.html`: 工業デザインの詳細ページ
 - `data-production.html`: データ製作の詳細ページ
 - `styles.css`: レイアウト、レスポンシブ、デザイン
-- `script.js`: モバイルナビ、ヘッダー表示、年表示
+- `script.js`: モバイルナビ、ヘッダー表示、年表示、ヒーロー動画、スクロール表示アニメーション
 - `assets/images/`: TOP用に生成した画像、既存HPから取得した画像、表示用に軽量化した画像
 - `assets/images/services/`: 既存HPの各サービス詳細ページから取得した画像
+- `assets/videos/`: ヒーロー動画（`hero-painting.mp4` が本番用。`hero-candidate-a/b.mp4` は選定用の候補）
 
 ## ローカルで確認する
 
@@ -60,6 +62,22 @@ npm test
 3. `Pages` を開きます。
 4. `Build and deployment` の `Source` を `Deploy from a branch` にします。
 5. `Branch` を `main`、フォルダを `/root` に設定して保存します。
+
+## 差し替えが必要な仮素材（重要）
+
+現在、以下はAI生成の仮素材・仮テキストです。実素材が入手でき次第、差し替えてください。
+該当箇所はHTML内に `TODO(要確認)` コメントを入れています。
+
+- `pp-welding.html` の本文全体（工法、対応素材、製作例、フロー）
+- `index.html` のPP溶着カード内の4項目
+- `assets/images/services/pp-welding/*.jpg`（PP溶着の作業・製作物イメージ）
+- `assets/images/hero-painting-still.jpg`、`assets/videos/hero-painting.mp4`（塗装ブースの映像・静止画）
+
+TODO箇所の一覧は次のコマンドで確認できます。
+
+```bash
+grep -rn "TODO(要確認)" *.html
+```
 
 ## 更新時の注意
 

@@ -16,15 +16,34 @@ const assertNoHorizontalOverflow = async (page) => {
   expect(hasHorizontalOverflow).toBe(false);
 };
 
+// 遅延読み込み画像とスクロール表示アニメーションを確定させるため、一度ページ全体を通す
+const settlePage = async (page) => {
+  await page.evaluate(async () => {
+    const step = window.innerHeight;
+    for (let position = 0; position < document.body.scrollHeight; position += step) {
+      window.scrollTo(0, position);
+      await new Promise((resolve) => setTimeout(resolve, 120));
+    }
+    window.scrollTo(0, 0);
+    await new Promise((resolve) => setTimeout(resolve, 200));
+  });
+  await page.waitForLoadState("networkidle");
+};
+
 test("renders the Art Shimoura site without broken assets", async ({ page }, testInfo) => {
   await page.goto("/");
 
   await expect(page).toHaveTitle(/株式会社Art Shimoura/);
-  await expect(page.getByRole("heading", { level: 1 })).toHaveText("試作モデルのことなら、Art Shimouraへ。");
-  await expect(page.locator('a[href="tel:09021980078"]')).toHaveCount(4);
+  await expect(page.getByRole("heading", { level: 1 })).toContainText("塗装とPP溶着で、");
+  await expect(page.getByRole("heading", { level: 1 })).toContainText("試作のその先へ。");
+  // ヘッダーCTA / ヒーロー / 営業案内バンド / 会社案内 / お問い合わせ
+  await expect(page.locator('a[href="tel:09021980078"]')).toHaveCount(5);
   await expect(page.getByRole("navigation").getByRole("link", { name: "制作実績" })).toHaveCount(0);
-  await expect(page.getByRole("navigation", { name: "サービス詳細ナビ" }).getByRole("link", { name: "塗装" })).toBeVisible();
-  await expect(page.locator('.service-card a[href="./painting.html"]')).toHaveCount(1);
+  await expect(page.getByRole("navigation", { name: "サービス詳細ナビ" }).getByRole("link", { name: "塗装", exact: true })).toBeVisible();
+  await expect(page.getByRole("navigation", { name: "サービス詳細ナビ" }).getByRole("link", { name: "PP溶着" })).toBeVisible();
+  // 塗装とPP溶着は2枚看板として service-card ではなく pillar で見せる
+  await expect(page.locator('.pillar a[href="./painting.html"]')).toHaveCount(1);
+  await expect(page.locator('.pillar a[href="./pp-welding.html"]')).toHaveCount(1);
   await expect(page.locator('.service-card a[href="./modeling.html"]')).toHaveCount(1);
   await expect(page.locator('.service-card a[href="./industrial-design.html"]')).toHaveCount(1);
   await expect(page.locator('.service-card a[href="./data-production.html"]')).toHaveCount(1);
@@ -36,6 +55,7 @@ test("renders the Art Shimoura site without broken assets", async ({ page }, tes
   await expect(page.locator("body")).toContainText("Master CAM / FFCAM");
   await expect(page.locator("body")).toContainText("Rhinoceros");
 
+  await settlePage(page);
   await assertNoBrokenImages(page);
   await assertNoHorizontalOverflow(page);
 
@@ -47,11 +67,13 @@ test("renders the Art Shimoura site without broken assets", async ({ page }, tes
   });
 });
 
+// images はヒーロー背景画像 1 枚を含む枚数
 [
-  { path: "/painting.html", heading: "塗装", text: "メッキ処理", images: 1 },
-  { path: "/modeling.html", heading: "試作モデル", text: "ジュラコン", images: 7 },
-  { path: "/industrial-design.html", heading: "工業デザイン", text: "25,000円", images: 2 },
-  { path: "/data-production.html", heading: "データ製作", text: "STEP", images: 1 },
+  { path: "/painting.html", heading: "塗装", text: "メッキ処理", images: 2 },
+  { path: "/pp-welding.html", heading: "PP溶着", text: "ポリプロピレン", images: 5 },
+  { path: "/modeling.html", heading: "試作モデル", text: "ジュラコン", images: 8 },
+  { path: "/industrial-design.html", heading: "工業デザイン", text: "25,000円", images: 3 },
+  { path: "/data-production.html", heading: "データ製作", text: "STEP", images: 2 },
 ].forEach((servicePage) => {
   test(`renders ${servicePage.heading} detail page`, async ({ page }, testInfo) => {
     await page.goto(servicePage.path);
@@ -131,14 +153,24 @@ test("renders the Art Shimoura site without broken assets", async ({ page }, tes
       expect(await productRotator.getAttribute("src")).not.toBe(firstProductSource);
       expect(await sketchRotator.getAttribute("src")).not.toBe(firstSketchSource);
     }
-    await expect(page.getByRole("navigation", { name: "サービス詳細ナビ" }).getByRole("link", { name: servicePage.heading })).toBeVisible();
+    if (servicePage.path === "/pp-welding.html") {
+      await expect(page.locator("body")).toContainText("熱風溶着");
+      await expect(page.locator("body")).toContainText("押出溶着");
+      await expect(page.locator("body")).toContainText("補修溶着");
+      await expect(page.locator("body")).toContainText("土日も営業");
+    }
+    await expect(
+      page.getByRole("navigation", { name: "サービス詳細ナビ" }).getByRole("link", { name: servicePage.heading, exact: true })
+    ).toBeVisible();
     await expect(page.locator("img")).toHaveCount(servicePage.images);
 
+    await settlePage(page);
     await assertNoBrokenImages(page);
     await assertNoHorizontalOverflow(page);
 
     if (
       servicePage.path === "/painting.html" ||
+      servicePage.path === "/pp-welding.html" ||
       servicePage.path === "/modeling.html" ||
       servicePage.path === "/industrial-design.html"
     ) {

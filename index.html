@@ -3,23 +3,32 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>株式会社Art Shimoura | 試作モデル・塗装・工業デザイン・データ製作</title>
+    <script>
+      document.documentElement.classList.add("js");
+    </script>
+    <title>株式会社Art Shimoura | 塗装・PP溶着・試作モデル・工業デザイン</title>
     <meta
       name="description"
-      content="兵庫県川西市の株式会社Art Shimouraは、試作モデル、塗装、工業デザイン、データ製作、3D-CAD、樹脂加工、金属加工、表面処理に対応します。"
+      content="兵庫県川西市の株式会社Art Shimouraは、塗装とPP溶着を軸に、試作モデル、工業デザイン、データ製作、3D-CAD、樹脂加工、金属加工、表面処理に対応します。"
     />
     <meta
       name="keywords"
-      content="試作モデル, 塗装, 工業デザイン, データ製作, 3D-CAD, 兵庫, 川西市, 大阪, 関西, 樹脂加工, 金属加工, 表面処理"
+      content="塗装, PP溶着, プラスチック溶着, 試作モデル, 工業デザイン, データ製作, 3D-CAD, 兵庫, 川西市, 大阪, 関西, 樹脂加工, 金属加工, 表面処理"
     />
     <meta property="og:type" content="website" />
-    <meta property="og:title" content="株式会社Art Shimoura | 試作モデル・塗装・工業デザイン・データ製作" />
+    <meta property="og:title" content="株式会社Art Shimoura | 塗装・PP溶着・試作モデル・工業デザイン" />
     <meta
       property="og:description"
-      content="塗装・試作モデル・工業デザイン・データ製作まで、関西を拠点に柔軟に対応します。"
+      content="塗装とPP溶着を軸に、試作モデル・工業デザイン・データ製作まで。関西を拠点に柔軟に対応します。"
     />
     <meta property="og:locale" content="ja_JP" />
     <link rel="icon" type="image/svg+xml" href="./assets/favicon.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&family=Noto+Sans+JP:wght@400;700;900&display=swap"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="./styles.css" />
     <script type="application/ld+json">
       {
@@ -37,7 +46,7 @@
           "addressCountry": "JP"
         },
         "areaServed": ["兵庫", "川西市", "大阪", "関西"],
-        "description": "試作モデル、塗装、工業デザイン、データ製作、3D-CAD、樹脂加工、金属加工、表面処理に対応します。"
+        "description": "塗装、PP溶着、試作モデル、工業デザイン、データ製作、3D-CAD、樹脂加工、金属加工、表面処理に対応します。"
       }
     </script>
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-SS5Q0YDYKC"></script>
@@ -54,7 +63,7 @@
         <span class="brand-mark">AS</span>
         <span class="brand-text">
           <span>ART SHIMOURA</span>
-          <small>Professional Modeling</small>
+          <small>Painting &amp; PP Welding</small>
         </span>
       </a>
       <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" data-nav-toggle>
@@ -69,10 +78,17 @@
         <a href="#company">会社案内</a>
         <a href="#contact">お問い合わせ</a>
       </nav>
+      <a class="header-call" href="tel:09021980078">
+        <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+          <path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.2a2 2 0 0 1 2.1-.5c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2Z" />
+        </svg>
+        090-2198-0078
+      </a>
     </header>
 
     <nav class="service-subnav" aria-label="サービス詳細ナビ">
       <a href="./painting.html">塗装</a>
+      <a href="./pp-welding.html">PP溶着</a>
       <a href="./modeling.html">試作モデル</a>
       <a href="./industrial-design.html">工業デザイン</a>
       <a href="./data-production.html">データ製作</a>
@@ -80,33 +96,61 @@
 
     <main>
       <section class="hero" id="home" aria-label="Art Shimoura ファーストビュー">
-        <div class="hero-media" aria-hidden="true"></div>
+        <div class="hero-media" aria-hidden="true">
+          <!-- TODO(要確認): AI生成の仮動画・仮画像です。実際の作業映像に差し替え可能です。
+               動画はPC幅でのみ読み込み、スマホ・低速回線ではポスター画像のみ表示します。 -->
+          <video
+            poster="./assets/images/hero-painting-still.jpg"
+            muted
+            loop
+            playsinline
+            preload="none"
+            data-hero-video
+            data-hero-video-src="./assets/videos/hero-painting.mp4"
+          ></video>
+        </div>
+        <div class="hero-grain" aria-hidden="true"></div>
         <div class="hero-content">
-          <p class="eyebrow">Professional Modeling Network System</p>
-          <h1>試作モデルのことなら、Art Shimouraへ。</h1>
-          <p class="hero-lead">
-            塗装・試作モデル・工業デザイン・データ製作まで、関西を拠点に柔軟に対応します。
+          <p class="eyebrow" data-reveal>Painting &amp; PP Welding</p>
+          <h1 data-reveal data-reveal-delay="1">
+            <span class="accent-word">塗装</span>と<span class="accent-word">PP溶着</span>で、<br />
+            試作のその先へ。
+          </h1>
+          <p class="hero-lead" data-reveal data-reveal-delay="2">
+            調色から仕上げまでの塗装技術と、樹脂を「くっつける」PP溶着。
+            この2つを軸に、試作モデル・工業デザイン・データ製作まで一貫して対応します。
           </p>
-          <p class="hero-note">
+          <p class="hero-note" data-reveal data-reveal-delay="2">
             「試作モデル」のことなら何でもご相談ください。お客様のご要望に敏速に対応いたします。
           </p>
-          <ul class="hero-tags" aria-label="対応領域">
+          <ul class="hero-tags" aria-label="対応領域" data-reveal data-reveal-delay="3">
             <li>3D-CAD</li>
             <li>樹脂加工</li>
             <li>金属加工</li>
             <li>表面処理</li>
+            <li>PP溶着</li>
           </ul>
-          <div class="hero-actions" aria-label="お問い合わせ導線">
+          <div class="hero-actions" aria-label="お問い合わせ導線" data-reveal data-reveal-delay="4">
             <a class="button button-primary" href="#contact">お問い合わせ</a>
             <a class="button button-secondary" href="tel:09021980078">電話する</a>
           </div>
         </div>
+        <a class="hero-scroll" href="#services" aria-label="サービスへスクロール">Scroll</a>
       </section>
+
+      <div class="marquee" aria-hidden="true">
+        <div class="marquee-track">
+          <span>PAINTING</span><span>PP WELDING</span><span>PROTOTYPE MODEL</span><span>INDUSTRIAL DESIGN</span><span>3D DATA</span><span>SURFACE FINISH</span>
+        </div>
+        <div class="marquee-track">
+          <span>PAINTING</span><span>PP WELDING</span><span>PROTOTYPE MODEL</span><span>INDUSTRIAL DESIGN</span><span>3D DATA</span><span>SURFACE FINISH</span>
+        </div>
+      </div>
 
       <section class="section intro-band" aria-label="営業案内">
         <div class="container intro-grid">
           <div>
-            <p class="section-kicker">ART SHIMOURA</p>
+            <p class="section-kicker">Art Shimoura</p>
             <h2>土日も営業。価格、納期ご相談ください。</h2>
           </div>
           <a class="direct-call" href="tel:09021980078">
@@ -116,30 +160,84 @@
         </div>
       </section>
 
-      <section class="section" id="services">
+      <section class="section pillars-section" id="services">
         <div class="container">
-          <div class="section-heading">
-            <p class="section-kicker">Services</p>
-            <h2>サービス</h2>
+          <div class="section-heading" data-reveal>
+            <p class="section-kicker">Our Strength</p>
+            <h2>Art Shimouraの2本柱。</h2>
             <p>
-              試作から仕上げまで、素材・形状・納期に合わせて現実的な方法をご提案します。
+              仕上がりを決める「塗装」と、樹脂部品を確実に接合する「PP溶着」。
+              この2つの技術を核に、試作の完成度を引き上げます。
+            </p>
+          </div>
+
+          <div class="pillar-grid">
+            <article class="pillar" data-reveal>
+              <div class="pillar-media">
+                <img src="./assets/images/service-painting-display.jpg" alt="塗装仕上げに対応した試作モデル" loading="lazy" />
+                <p class="pillar-index">01</p>
+                <div class="pillar-title">
+                  <small>Painting</small>
+                  <strong>塗装</strong>
+                </div>
+              </div>
+              <div class="pillar-body">
+                <p>
+                  各種塗装、ウレタン、ラッカー、発泡ウレタンの塗装仕上げに対応。
+                  下地処理から調色、仕上げまで状態を確認しながら仕上げます。
+                </p>
+                <ul class="pillar-points">
+                  <li>メタリック調、アルミ調、木目調、石目調、クリア等の調色</li>
+                  <li>光造形品、粉末造形、ポリカ等、各種造形品の仕上げ及び塗装</li>
+                  <li>発泡ウレタンによる軽量化・コストダウン</li>
+                  <li>塗装、印刷、メッキ処理、インレタ、シルク印刷</li>
+                </ul>
+                <a class="pillar-link" href="./painting.html">塗装について詳しく見る</a>
+              </div>
+            </article>
+
+            <article class="pillar" data-reveal data-reveal-delay="1">
+              <div class="pillar-media">
+                <!-- TODO(要確認): 実際のPP溶着製作物の写真に差し替え。現状はAI生成のイメージ画像です。 -->
+                <img src="./assets/images/services/pp-welding/pp-welding-06.jpg" alt="溶着で組み上げたポリプロピレン（PP）構造物のイメージ" loading="lazy" />
+                <p class="pillar-index">02</p>
+                <div class="pillar-title">
+                  <small>PP Welding</small>
+                  <strong>PP溶着</strong>
+                </div>
+              </div>
+              <div class="pillar-body">
+                <p>
+                  接着剤が効きにくいポリプロピレン（PP）を、母材と同じ樹脂で溶かして接合。
+                  一体成形に近い強度と気密性を、試作・少量生産の段階から実現します。
+                </p>
+                <!-- TODO(要確認): 以下4項目は一般的なPP溶着の内容で仮置きしています。実際の対応工法・対応寸法に合わせて要修正。 -->
+                <ul class="pillar-points">
+                  <li>熱風溶着・押出溶着による板材の接合</li>
+                  <li>タンク、水槽、ダクト、治具カバー等の製作</li>
+                  <li>PP以外にPE・PVC等の樹脂溶接にも対応</li>
+                  <li>既存部品の割れ・欠損の補修溶着</li>
+                </ul>
+                <a class="pillar-link" href="./pp-welding.html">PP溶着について詳しく見る</a>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" aria-label="その他のサービス">
+        <div class="container">
+          <div class="section-heading" data-reveal>
+            <p class="section-kicker">Services</p>
+            <h2>試作から仕上げまで、まとめて任せられます。</h2>
+            <p>
+              素材・形状・納期に合わせて、現実的な方法をご提案します。
             </p>
           </div>
 
           <div class="service-grid">
-            <article class="service-card">
-              <img src="./assets/images/service-painting-display.jpg" alt="塗装仕上げに対応した試作モデル" />
-              <div class="service-body">
-                <h3>塗装</h3>
-                <p>
-                  各種塗装、ウレタン、ラッカー、発泡ウレタンの塗装仕上げに対応。モデルの軽量化・コストダウンにも貢献します。
-                </p>
-                <a class="service-link" href="./painting.html">詳しく見る</a>
-              </div>
-            </article>
-
-            <article class="service-card">
-              <img src="./assets/images/service-modeling-display.jpg" alt="樹脂を用いた試作モデル部品" />
+            <article class="service-card" data-reveal>
+              <img src="./assets/images/service-modeling-display.jpg" alt="樹脂を用いた試作モデル部品" loading="lazy" />
               <div class="service-body">
                 <h3>試作モデル</h3>
                 <p>
@@ -149,8 +247,8 @@
               </div>
             </article>
 
-            <article class="service-card">
-              <img src="./assets/images/service-design-display.jpg" alt="工業デザインの検討に使う制作物イメージ" />
+            <article class="service-card" data-reveal data-reveal-delay="1">
+              <img src="./assets/images/service-design-display.jpg" alt="工業デザインの検討に使う制作物イメージ" loading="lazy" />
               <div class="service-body">
                 <h3>工業デザイン</h3>
                 <p>
@@ -160,8 +258,8 @@
               </div>
             </article>
 
-            <article class="service-card">
-              <img src="./assets/images/service-data-display.jpg" alt="3D-CADによるデータ製作イメージ" />
+            <article class="service-card" data-reveal data-reveal-delay="2">
+              <img src="./assets/images/service-data-display.jpg" alt="3D-CADによるデータ製作イメージ" loading="lazy" />
               <div class="service-body">
                 <h3>データ製作</h3>
                 <p>
@@ -171,20 +269,19 @@
               </div>
             </article>
           </div>
-
         </div>
       </section>
 
       <section class="section strengths-section">
         <div class="container split-layout">
-          <div class="section-heading align-left">
-            <p class="section-kicker">Strengths</p>
+          <div class="section-heading align-left" data-reveal>
+            <p class="section-kicker">Why Art Shimoura</p>
             <h2>小回りの利く対応で、試作を前へ進めます。</h2>
             <p>
               関西エリアを中心に、製品開発の現場で必要なスピード感と仕上げ品質を両立します。
             </p>
           </div>
-          <div class="strength-list">
+          <div class="strength-list" data-reveal data-reveal-delay="1">
             <div class="strength-item">
               <div class="strength-title">
                 <span class="strength-icon" aria-hidden="true">
@@ -216,7 +313,7 @@
                 </span>
                 <strong>試作から仕上げまで一貫対応</strong>
               </div>
-              <p>データ製作、加工、組立、塗装、表面処理まで一連の工程を見据えます。</p>
+              <p>データ製作、加工、組立、溶着、塗装、表面処理まで一連の工程を見据えます。</p>
             </div>
             <div class="strength-item">
               <div class="strength-title">
@@ -236,12 +333,12 @@
 
       <section class="section company-section" id="company">
         <div class="container">
-          <div class="section-heading">
+          <div class="section-heading" data-reveal>
             <p class="section-kicker">Company</p>
             <h2>会社案内</h2>
           </div>
           <div class="company-layout">
-            <dl class="company-table">
+            <dl class="company-table" data-reveal>
               <div>
                 <dt>社名</dt>
                 <dd>株式会社Art Shimoura</dd>
@@ -272,7 +369,7 @@
               </div>
             </dl>
 
-            <div class="business-card">
+            <div class="business-card" data-reveal data-reveal-delay="1">
               <h3>事業内容</h3>
               <ol>
                 <li>工業用製品、各種機械部品、電気機器等の試作品及び模型の企画、設計、製造及び販売</li>
@@ -284,9 +381,11 @@
           </div>
 
           <div class="company-detail-grid">
-            <section class="company-info-card company-wide">
+            <section class="company-info-card company-wide" data-reveal>
               <h3>営業種目</h3>
               <ul class="company-tags">
+                <li>塗装・調色</li>
+                <li>PP溶着（樹脂溶接）</li>
                 <li>熱溶融積層造形モデル</li>
                 <li>MC / NC機械加工</li>
                 <li>モデリングデータ作成販売</li>
@@ -305,7 +404,7 @@
               </ul>
             </section>
 
-            <section class="company-info-card company-wide">
+            <section class="company-info-card company-wide" data-reveal>
               <h3>設備機器一覧</h3>
               <ul class="equipment-list">
                 <li><span>NCマシーン（切削機）</span>切削寸法 1000×550×300：1台（メーカー名 OKK）</li>
@@ -317,7 +416,7 @@
               </ul>
             </section>
 
-            <section class="company-info-card">
+            <section class="company-info-card" data-reveal>
               <h3>コンピューターシステム</h3>
               <ul>
                 <li>ユニグラフ3Dシステム：2台</li>
@@ -333,12 +432,12 @@
       </section>
 
       <section class="section contact-section" id="contact">
-        <div class="container contact-panel">
+        <div class="container contact-panel" data-reveal>
           <div>
             <p class="section-kicker">Contact</p>
             <h2>お問い合わせ</h2>
             <p>
-              試作モデル、塗装、工業デザイン、データ製作のご相談は営業直通までお電話ください。
+              塗装、PP溶着、試作モデル、工業デザイン、データ製作のご相談は営業直通までお電話ください。
               キャラクター商品、自動車・バイク用パーツ等もご相談いただけます。データ製作には打ち合わせが必要です。
               土日も営業。価格、納期ご相談ください。
             </p>
@@ -346,19 +445,30 @@
           <div class="phone-panel">
             <span>営業直通</span>
             <a href="tel:09021980078">090-2198-0078</a>
-            <small>受付内容: 試作モデル / 塗装 / 工業デザイン / データ製作</small>
+            <small>受付内容: 塗装 / PP溶着 / 試作モデル / 工業デザイン / データ製作</small>
           </div>
         </div>
       </section>
     </main>
 
     <footer class="site-footer">
-      <div class="container footer-inner">
-        <div>
-          <strong>ART SHIMOURA</strong>
-          <p>Professional Modeling Network System</p>
+      <div class="container">
+        <nav class="footer-nav" aria-label="フッターナビ">
+          <a href="./painting.html">塗装</a>
+          <a href="./pp-welding.html">PP溶着</a>
+          <a href="./modeling.html">試作モデル</a>
+          <a href="./industrial-design.html">工業デザイン</a>
+          <a href="./data-production.html">データ製作</a>
+          <a href="#company">会社案内</a>
+          <a href="#contact">お問い合わせ</a>
+        </nav>
+        <div class="footer-inner">
+          <div>
+            <strong>ART SHIMOURA</strong>
+            <p>Professional Modeling Network System</p>
+          </div>
+          <p><span data-year></span> 株式会社Art Shimoura. All Rights Reserved.</p>
         </div>
-        <p><span data-year></span> 株式会社Art Shimoura. All Rights Reserved.</p>
       </div>
     </footer>
 

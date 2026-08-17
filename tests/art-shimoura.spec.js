@@ -136,7 +136,7 @@ test("renders the Art Shimoura site without broken assets", async ({ page }, tes
       const sketchRotator = rotatorImages.nth(1);
       await expect(productRotator).toHaveAttribute(
         "data-rotator-images",
-        /^\.\/assets\/images\/services\/design\/design-01-display\.jpg\|\.\/assets\/images\/services\/design\/design-02-display\.jpg\|\.\/assets\/images\/services\/design\/design-06-display\.jpg\|\.\/assets\/images\/services\/design\/design-07-display\.png\|\.\/assets\/images\/services\/design\/design-08-display\.jpg\|\.\/assets\/images\/services\/design\/design-03-display\.jpg$/
+        /^\.\/assets\/images\/services\/design\/design-01-display\.jpg\|\.\/assets\/images\/services\/design\/design-02-display\.jpg\|\.\/assets\/images\/services\/design\/design-06-display\.jpg\|\.\/assets\/images\/services\/design\/design-07-display\.jpg\|\.\/assets\/images\/services\/design\/design-08-display\.jpg\|\.\/assets\/images\/services\/design\/design-03-display\.jpg$/
       );
       await expect(sketchRotator).toHaveAttribute("data-rotator-images", /design-04-display\.jpg/);
       await expect(sketchRotator).toHaveAttribute("data-rotator-images", /design-05-display\.jpg/);

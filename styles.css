@@ -888,9 +888,18 @@ h1 .accent-word {
   transition: transform 900ms var(--ease), filter 500ms var(--ease);
 }
 
+/* 調色サンプルは色そのものが商品なので、彩度を落とさない */
+.pillar-media-vivid img {
+  filter: saturate(1.06) contrast(1.04);
+}
+
 .pillar:hover .pillar-media img {
   filter: saturate(1) contrast(1.06);
   transform: scale(1.06);
+}
+
+.pillar:hover .pillar-media-vivid img {
+  filter: saturate(1.12) contrast(1.04);
 }
 
 .pillar-media::after {
@@ -1763,20 +1772,26 @@ h1 .accent-word {
 .painting-overlay-label {
   position: absolute;
   z-index: 1;
-  max-width: 36%;
-  padding: 6px 10px;
+  max-width: 38%;
+  padding: 7px 11px 7px 13px;
   color: var(--color-ink);
-  background: rgba(255, 255, 255, 0.92);
-  border: 1px solid rgba(11, 12, 13, 0.16);
-  font-size: 13px;
-  font-weight: 900;
-  line-height: 1.45;
+  background: rgba(255, 255, 255, 0.94);
+  backdrop-filter: blur(6px);
+  box-shadow:
+    inset 3px 0 0 var(--color-ink),
+    0 6px 18px rgba(8, 9, 10, 0.18);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  line-height: 1.5;
 }
 
 .painting-overlay-red {
   color: #ffffff;
   background: var(--accent);
-  border-color: var(--accent);
+  box-shadow:
+    inset 3px 0 0 var(--accent-deep),
+    0 6px 18px rgba(214, 50, 0, 0.28);
 }
 
 .painting-box-label-top {
@@ -1837,6 +1852,30 @@ h1 .accent-word {
   overflow: hidden;
   background: #eef0f1;
   border: 1px solid var(--color-line);
+}
+
+/* 塗装の見本は縦横比を 4:3 に統一済み。暗いステージで作品を見せる */
+.finish-carousel {
+  background: var(--color-dark);
+  border-color: var(--color-dark);
+}
+
+.finish-carousel img {
+  aspect-ratio: 4 / 3;
+  background: var(--color-dark);
+}
+
+.finish-carousel .carousel-progress {
+  background: var(--color-dark-soft);
+  border-top-color: rgba(255, 255, 255, 0.12);
+}
+
+.finish-carousel .carousel-progress span {
+  background: rgba(255, 255, 255, 0.22);
+}
+
+.finish-carousel .carousel-progress span.is-active {
+  background: var(--accent);
 }
 
 .design-carousel figure {
@@ -2324,9 +2363,9 @@ h1 .accent-word {
   }
 
   .painting-overlay-label {
-    max-width: 46%;
-    padding: 5px 8px;
-    font-size: 11px;
+    max-width: 48%;
+    padding: 5px 8px 5px 10px;
+    font-size: 10.5px;
   }
 
   .direct-call {

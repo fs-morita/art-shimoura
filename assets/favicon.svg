@@ -1,5 +1,1 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Art Shimoura">
-  <rect width="64" height="64" rx="8" fill="#111111"/>
-  <text x="32" y="39" fill="#ffffff" font-family="Arial, Helvetica, sans-serif" font-size="24" font-weight="800" text-anchor="middle" letter-spacing="-1">AS</text>
-  <path d="M16 48h32" stroke="#8e9498" stroke-width="3" stroke-linecap="square"/>
-</svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -4 52 52" width="520" height="520"><title>Art Shimoura</title><path d="M0 0H32L48 16V48H0Z" fill="#141414"/><path d="M36 -4H52V12Z" fill="#D80000"/></svg>
